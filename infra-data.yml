@@ -1,0 +1,56 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- hosts: localhost
+  gather_facts: False
+  tags: once
+
+  vars: &vars
+    data_dir: ext/data
+    data_version: v0.3.0
+
+  tasks:
+
+    - git:
+        repo: git@github.com:Epiconcept-Paris/infra-data.git
+        version: '{{ data_version }}'
+        dest: '{{ data_dir}}/{{ data_version }}'
+        key_file: ~/id_epiconcept
+      tags: git
+      name: get infra-data
+
+- hosts: localhost
+  gather_facts: True
+  tags: main
+
+  vars: *vars
+
+  tasks:
+
+    - set_fact:
+        data: '{{ data_dir}}/{{ data_version }}/templates.out'
+        user: '{{ ansible_user_id }}'
+
+    - copy:
+        src: '{{ data}}/config/ssh-config'
+        dest: '{{ playbook_dir}}/ssh-config'
+      name: config
+
+    - copy:
+        src: '{{ data}}/inventory/{{ item }}'
+        dest: '{{ playbook_dir}}/inventory/{{ item }}'
+      with_items:
+        - ansible_ssh_host
+        - local
+        - networks
+        - ansible_become_pass_{{ user }}
+      name: inventory
+
+    - copy:
+        src: '{{ data}}/vars/{{ item }}'
+        dest: '{{ playbook_dir}}/vars/{{ item }}'
+      with_items:
+        - ips.yml
+        - networks.yml
+        - vms.yml
+      name: vars
