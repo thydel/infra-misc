@@ -2,23 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "text": "How to use infra-data\n\n\ninfra-data\n is an\nEpiConcept private repos.\n\n\nIt contains structural informations about EpiConcept infrastructure\nlike lists of networks, IPs, VMs, users, etc.\n\n\nFrom this stable yaml list of dict we build specific ansible vars and\ninventory files.\n\n\nThe generated ansible files are tagged and push back to \ninfra-data\n.\n\n\nHere we show how to use such a \ntag\n to add to a public repos using a\ndedicated playbook the private data you need from \ninfra-data\n.", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-mkdocs", 
-            "text": "For full documentation visit  mkdocs.org .", 
-            "title": "Welcome to MkDocs"
-        }, 
-        {
-            "location": "/#commands", 
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
-            "title": "Commands"
-        }, 
-        {
-            "location": "/#project-layout", 
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
-            "title": "Project layout"
+            "location": "/#how-to-use-infra-data", 
+            "text": "infra-data  is an\nEpiConcept private repos.  It contains structural informations about EpiConcept infrastructure\nlike lists of networks, IPs, VMs, users, etc.  From this stable yaml list of dict we build specific ansible vars and\ninventory files.  The generated ansible files are tagged and push back to  infra-data .  Here we show how to use such a  tag  to add to a public repos using a\ndedicated playbook the private data you need from  infra-data .", 
+            "title": "How to use infra-data"
         }
     ]
 }
