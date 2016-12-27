@@ -36,7 +36,7 @@ tde:; $($@)
 
 wato:; git push --dry-run wato
 
-once:; mkdir -p .cache .retry .hide roles log tmp ext vars
+once:; mkdir -p .cache .retry .hide roles log tmp ext vars inventory
 
 README.html: README.md; pandoc -o $@ $<
 readme: README.html
