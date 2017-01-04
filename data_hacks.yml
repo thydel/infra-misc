@@ -1,0 +1,18 @@
+---
+
+- hosts: backup2
+  gather_facts: False
+
+  vars:
+    git: git@github.com:bitly/data_hacks.git
+
+  tasks:
+
+    - apt:
+        name: python-pip
+
+    - fail:
+        
+    - pip:
+        name: git@github.com:bitly/data_hacks.git
+        
