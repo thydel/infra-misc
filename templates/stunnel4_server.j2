@@ -1,0 +1,45 @@
+#jinja2: line_statement_prefix: "%", line_comment_prefix: "##"
+# {{ ansible_managed }}
+% set nl = '\n'
+; DO NOT EDIT MANUALLY
+
+; CHROOT OPTION
+chroot = /var/lib/stunnel4/
+
+; UID & GIG
+setuid = stunnel4
+setgid = stunnel4
+
+; PID
+pid    = /stunnel.pid
+
+; DELAY (DNS)
+delay  = no
+
+; DEBUGGING
+log    = append
+debug  = 7
+output = /stunnel.log
+
+; CERTS
+cert = /etc/stunnel/stunnel.pem
+
+; SERVICES
+% if server
+[{{ server.service }}]
+accept  = {{ server.accept }}
+connect = {{ server.connect }}
+client  = no
+% endif
+
+% for service in clients.list
+  % set client = clients.data[service]
+{{ nl }}[{{ service }}]
+accept  = {{ client.accept }}
+connect = {{ client.connect }}
+client  = yes
+% endfor
+
+##- Local Variables:
+##- Mode: jinja2
+##- End:

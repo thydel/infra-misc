@@ -13,6 +13,7 @@ site/
 README.html
 plugins/filter/*.pyc
 
+# generated
 ssh-config
-vars/
-inventory/
+vars/ext/
+inventory/*.ext
