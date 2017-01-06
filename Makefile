@@ -24,6 +24,11 @@ help:
 	@$(foreach version,$(versions),echo '$(setup)';)
 	@echo
 	@echo 'source <(< ~/.gpg-agent-info xargs -i echo export {})'
+	@echo
+	@echo export 'PATH=$$PATH:.'
+	@echo export GIT_PAGER=cat
+	@echo "export GIT_EDITOR='emacsclient -s epi -c'"
+	@echo "export GIT_EDITOR='emacsclient -s thy -c'"
 
 clone pull setup pkgs:; @echo '$($@)'
 
