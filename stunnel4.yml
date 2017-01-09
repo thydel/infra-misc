@@ -11,6 +11,7 @@
 
   tasks:
 
+    - apt: name=stunnel4 state=present
     - set_fact: { stunnel4_clients: [] }
     - set_fact:
         stunnel4_clients: '{{ stunnel4vm_name[inventory_hostname].stunnels }}'
@@ -34,6 +35,7 @@
 
   tasks:
 
+    - apt: name=stunnel4 state=present          
     - template:
         src: stunnel4_server.j2
         dest: /tmp/stunnel.conf
