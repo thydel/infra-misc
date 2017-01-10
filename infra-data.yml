@@ -8,7 +8,7 @@
   vars: &vars
 
     data_dir:     ext/data
-    data_version: v0.7.2
+    data_version: v0.8.2
     data:         '{{ data_dir}}/{{ data_version }}/templates.out'
     local:        '{{ ansible_hostname }}'
     user:         '{{ ansible_user_id }}'
@@ -47,8 +47,8 @@
         - networks
         - stunnel4_servers
         - stunnel4_clients
+        - static_groups
         - ansible_become_pass_{{ user }}
-        - 
       name: inventory
 
     - file:

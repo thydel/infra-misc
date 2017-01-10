@@ -11,6 +11,9 @@
 
   tasks:
 
+    - apt: name=stunnel4 state=present
+    - include_role: name=selfsigned-cert-ansible
+      
     - set_fact: { stunnel4_clients: [] }
     - set_fact:
         stunnel4_clients: '{{ stunnel4vm_name[inventory_hostname].stunnels }}'
@@ -33,6 +36,9 @@
   vars_files: *stunnel4
 
   tasks:
+
+    - apt: name=stunnel4 state=present          
+    - include_role: name=selfsigned-cert-ansible
 
     - template:
         src: stunnel4_server.j2
