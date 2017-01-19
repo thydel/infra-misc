@@ -24,7 +24,7 @@
 
     - apt_hold:
         hold: '{{ hold | default(True) }}'
-        search: '{{ [ search ] | default(hold_search.default_) }}'
+        search: '{{ search | default(hold_search.default_) }}'
         notfoundok: '{{ notfoundok | default(False) }}'
       
     - debug: var=apt_hold
