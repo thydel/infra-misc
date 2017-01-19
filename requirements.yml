@@ -3,4 +3,6 @@
 - src: https://github.com/thydel/ar-apt-hold.git
   name: apt-hold
 
+- src: https://github.com/slgevens/selfsigned-cert-ansible.git
+
 ...
